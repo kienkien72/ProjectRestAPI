@@ -168,46 +168,37 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-8 text-center">
+                                    <div class="col-12 col-md-8">
                                         <div class="row g-4">
                                             <c:forEach var="product" items="${products}">
-                                                <div class="col-md-6 col-lg-4">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item h-100 shadow-sm">
+                                                        <div class="fruite-img rounded-top" style="height: 220px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; padding: 10px;">
                                                             <img src="/images/product/${product.image}"
-                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                                class="img-fluid" alt="${product.name}"
+                                                                style="max-width: 100%; max-height: 100%; object-fit: contain;">
                                                         </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Laptop
+                                                        <div class="text-white bg-secondary px-2 py-1 rounded position-absolute"
+                                                            style="top: 5px; left: 5px; font-size: 11px;">Laptop
                                                         </div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4 style="font-size: 15px;">
-                                                                <a href="/product/${product.id}">
+                                                        <div class="p-2 rounded-bottom">
+                                                            <h4 class="mb-1" style="font-size: 13px; line-height: 1.2; max-height: 2.4em; overflow: hidden;">
+                                                                <a href="/product/${product.id}" class="text-dark text-decoration-none">
                                                                     ${product.name}
                                                                 </a>
                                                             </h4>
-                                                            <p style="font-size: 13px;">
+                                                            <p class="text-muted mb-1" style="font-size: 11px; line-height: 1.3; max-height: 2.6em; overflow: hidden;">
                                                                 ${product.shortDesc}</p>
-                                                            <div
-                                                                class="d-flex  flex-lg-wrap justify-content-center flex-column">
-                                                                <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                                    class="text-dark  fw-bold mb-3">
-                                                                    <fmt:formatNumber type="number"
-                                                                        value="${product.price}" />
-                                                                    đ
-                                                                </p>
-                                                                <form action="/add-product-to-cart/${product.id}"
-                                                                    method="post">
-                                                                    <input type="hidden" name="${_csrf.parameterName}"
-                                                                        value="${_csrf.token}" />
-                                                                    <button
-                                                                        class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                        Add to cart
-                                                                    </button>
-                                                                </form>
-                                                            </div>
+                                                            <p class="text-dark fw-bold mb-2 text-center" style="font-size: 14px;">
+                                                                <fmt:formatNumber type="number" value="${product.price}" /> đ
+                                                            </p>
+                                                            <form action="/add-product-to-cart/${product.id}" method="post" class="mb-0">
+                                                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                                <button type="submit" class="btn btn-sm border border-secondary rounded-pill px-2 py-1 text-primary w-100" style="font-size: 12px;">
+                                                                    <i class="fa fa-shopping-bag me-1" style="font-size: 11px;"></i>
+                                                                    Add to cart
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
